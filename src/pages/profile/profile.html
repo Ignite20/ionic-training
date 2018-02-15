@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			Profile
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<!-- Avatar zone -->
+
+	<ion-item>
+		<ion-avatar item-start>
+			<img src="{{userProf.picture_url}}" />
+		</ion-avatar>
+		<ion-title>
+			{{userProf.name}}
+		</ion-title>
+	</ion-item>
+
+
+	<!-- END Avatar zone -->
+	<ion-card>
+		<ion-item>
+			Ocupation: {{ userProf.ocupation }}
+		</ion-item>
+		<ion-item>
+			age: {{ userProf.age }}
+		</ion-item>
+		<ion-item>
+			hobby: {{ userProf.hobby }}
+		</ion-item>
+	</ion-card>
+
+</ion-content>
