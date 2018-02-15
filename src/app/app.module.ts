@@ -9,15 +9,30 @@ import { MyApp } from "./app.component";
 import { HomePage } from "../pages/home/home";
 import { ProfilePage } from "../pages/profile/profile";
 import { TodoListPage } from "../pages/todolist/todolist";
+import { WeatherPage } from "../pages/weather/weather";
 
 // Navigations
 import { TabsPage } from "../pages/tabs/tabs";
 
 @NgModule({
-  declarations: [MyApp, TabsPage, HomePage, ProfilePage, TodoListPage],
+  declarations: [
+    MyApp,
+    TabsPage,
+    HomePage,
+    ProfilePage,
+    TodoListPage,
+    WeatherPage
+  ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, TabsPage, HomePage, ProfilePage, TodoListPage],
+  entryComponents: [
+    MyApp,
+    TabsPage,
+    HomePage,
+    ProfilePage,
+    TodoListPage,
+    WeatherPage
+  ],
   providers: [
     StatusBar,
     SplashScreen,
