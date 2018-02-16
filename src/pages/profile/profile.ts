@@ -15,9 +15,9 @@ export class ProfilePage {
     this.profile_picture = "assets/imgs/marty-avatar.png";
 
     this.userProf = new UserProfile(
-      "Developer",
+      "John",
       25,
-      "Analyst",
+      "Developer",
       "Motorcycles",
       this.profile_picture
     );

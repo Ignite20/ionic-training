@@ -1,7 +1,23 @@
 <ion-header>
-	<ion-item>
-		<ion-nav-title>
+	<ion-navbar>
+		<ion-title>
 			Weather
-		</ion-nav-title>
-	</ion-item>
+		</ion-title>
+	</ion-navbar>
 </ion-header>
+<ion-content>
+	<ion-item>
+		<ion-label floating>City</ion-label>
+		<ion-input type="text" value="" (input)="searchForWeather($event, searchKey)"></ion-input>
+	</ion-item>
+
+	<ion-item *ngIf="text_length > 1">
+		<ion-card>
+			<ion-item>Temperatura: {{weatherData.main.temp}} º</ion-item>
+			<ion-item>Presión: {{weatherData.main.pressure}}</ion-item>
+			<ion-item>Humedad: {{weatherData.main.humidity}}</ion-item>
+			<ion-item>Min: {{weatherData.main.temp_min}} º</ion-item>
+			<ion-item>Max: {{weatherData.main.temp_max}} º</ion-item>
+		</ion-card>
+	</ion-item>
+</ion-content>
