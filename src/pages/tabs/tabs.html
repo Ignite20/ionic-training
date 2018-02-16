@@ -1,4 +1,4 @@
-<ion-tabs color="inferno">
+<ion-tabs color="inferno" (swipe)="swipeEvent($event)">
 	<ion-tab [root]="tabHome" tabIcon="home"></ion-tab>
 	<ion-tab [root]="tabProfile" tabIcon="person"></ion-tab>
 	<ion-tab [root]="tabTodoList" tabIcon="list"></ion-tab>

@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { HttpModule } from "@angular/http";
+import { Camera } from "@ionic-native/camera";
 
 // Pages
 import { MyApp } from "./app.component";
@@ -41,6 +42,7 @@ import { WeatherService } from "../services/weather.service";
     StatusBar,
     SplashScreen,
     WeatherService,
+    Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
