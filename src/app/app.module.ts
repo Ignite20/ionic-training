@@ -5,6 +5,7 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 import { HttpModule } from "@angular/http";
 import { Camera } from "@ionic-native/camera";
+import { IonicStorageModule } from "@ionic/storage";
 
 // Pages
 import { MyApp } from "./app.component";
@@ -18,6 +19,8 @@ import { TabsPage } from "../pages/tabs/tabs";
 
 // Services
 import { WeatherService } from "../services/weather.service";
+import { ProfileEditPage } from "../pages/profileedit/profileedit";
+import { CameraPreview } from "@ionic-native/camera-preview";
 
 @NgModule({
   declarations: [
@@ -26,9 +29,15 @@ import { WeatherService } from "../services/weather.service";
     HomePage,
     ProfilePage,
     TodoListPage,
-    WeatherPage
+    WeatherPage,
+    ProfileEditPage
   ],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp), HttpModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
+    HttpModule
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -36,13 +45,15 @@ import { WeatherService } from "../services/weather.service";
     HomePage,
     ProfilePage,
     TodoListPage,
-    WeatherPage
+    WeatherPage,
+    ProfileEditPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     WeatherService,
     Camera,
+    CameraPreview,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

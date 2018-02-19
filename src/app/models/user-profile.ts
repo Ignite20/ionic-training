@@ -6,11 +6,11 @@ export class UserProfile {
   picture_url: string;
 
   constructor(
-    name: string,
-    age: number,
-    ocupation: string,
-    hobby: string,
-    picture_url: string
+    name?: string,
+    age?: number,
+    ocupation?: string,
+    hobby?: string,
+    picture_url?: string
   ) {
     this.name = name;
     this.age = age;

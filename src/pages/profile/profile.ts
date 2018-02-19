@@ -1,7 +1,9 @@
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { UserProfile } from "../../app/models/user-profile";
-import { CameraOptions, Camera } from "@ionic-native/camera";
+import { ProfileEditPage } from "../profileedit/profileedit";
+import { Storage } from "@ionic/storage";
+import { USER_PROFILE } from "../../util/constants";
 
 @Component({
   selector: "profile-page",
@@ -12,37 +14,43 @@ export class ProfilePage {
 
   userProf: UserProfile;
 
-  options: CameraOptions = {
-    quality: 100,
-    targetWidth: 100,
-    targetHeight: 100,
-    destinationType: this.camera.DestinationType.FILE_URI,
-    encodingType: this.camera.EncodingType.JPEG,
-    mediaType: this.camera.MediaType.PICTURE
-  };
-
-  constructor(public navCtrl: NavController, private camera: Camera) {
+  constructor(public navCtrl: NavController, private storage: Storage) {
     this.profile_picture = "assets/imgs/marty-avatar.png";
-
-    this.userProf = new UserProfile(
-      "John",
-      25,
-      "Developer",
-      "Motorcycles",
-      this.profile_picture
-    );
+    this.userProf = new UserProfile();
+    //this.gatherUser();
   }
 
-  openCamera() {
-    this.camera.getPicture(this.options).then(
-      imageData => {
-        console.log(imageData);
-        this.userProf.picture_url = imageData;
-        //this.profile_picture = "data:image/jpeg;base64," + imageData;
+  ngOnInit() {
+    this.gatherUser();
+  }
+
+  editProfile() {
+    console.log("Editing");
+    /*
+    let modal = this.modalCtrl.create(ProfileEditPage);
+    modal.onDidDismiss(user => {
+      this.userProf = user;
+    });
+    modal.present();
+    */
+    this.navCtrl.push(ProfileEditPage);
+  }
+
+  gatherUser() {
+    this.storage.get(USER_PROFILE).then(
+      user => {
+        console.log(user);
+        if (user != undefined) {
+          this.userProf = user;
+        }
       },
       err => {
         console.log(err);
       }
     );
+  }
+
+  ionViewWillEnter() {
+    this.gatherUser();
   }
 }

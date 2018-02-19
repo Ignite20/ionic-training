@@ -8,21 +8,18 @@
 
 <ion-content padding>
 	<!-- Avatar zone -->
-
-	<ion-item (click)="openCamera()">
+	<ion-item>
 		<ion-avatar item-start>
 			<img src="{{userProf.picture_url}}" />
 		</ion-avatar>
-		<ion-title>
-			{{userProf.name}}
-		</ion-title>
+		<h1>{{userProf.name}}</h1>
 	</ion-item>
 
 
 	<!-- END Avatar zone -->
 	<ion-card>
 		<ion-item>
-			Ocupation: {{ userProf.ocupation }}
+			Ocupation: {{ userProf.occupation }}
 		</ion-item>
 		<ion-item>
 			age: {{ userProf.age }}
@@ -31,5 +28,10 @@
 			hobby: {{ userProf.hobby }}
 		</ion-item>
 	</ion-card>
-
+	<!-- Real floating action button, fixed. It will not scroll with the content -->
+	<ion-fab right bottom (click)="editProfile()">
+		<button ion-fab color="primary">
+			<ion-icon name="create"></ion-icon>
+		</button>
+	</ion-fab>
 </ion-content>

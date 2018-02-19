@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			Profile Edit
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<form (ngSubmit)="saveProfile()">
+		<ion-item>
+			<ion-label floating>Name</ion-label>
+			<ion-input type="text" [(ngModel)]="userProf.name" value="userProf.name" name="name"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Age</ion-label>
+			<ion-input type="number" [(ngModel)]="userProf.age" name="age"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Occupation</ion-label>
+			<ion-input type="text" [(ngModel)]="userProf.occupation" name="occupation"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Hobby</ion-label>
+			<ion-input type="text" [(ngModel)]="userProf.hobby" name="hobby"></ion-input>
+		</ion-item>
+		<ion-item>
+			<img [src]="userProf.picture_url" />
+			<button ion-fab color="primary" side="right" (click)="openCamera()">
+				<ion-icon name="camera"></ion-icon>
+			</button>
+
+		</ion-item>
+		<button ion-button type=" submit " block>Save</button>
+	</form>
+</ion-content>
