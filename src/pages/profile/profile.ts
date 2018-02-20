@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { NavController, ModalController } from "ionic-angular";
 import { UserProfile } from "../../app/models/user-profile";
 import { ProfileEditPage } from "../profileedit/profileedit";
 import { Storage } from "@ionic/storage";
@@ -14,7 +14,11 @@ export class ProfilePage {
 
   userProf: UserProfile;
 
-  constructor(public navCtrl: NavController, private storage: Storage) {
+  constructor(
+    public navCtrl: NavController,
+    private storage: Storage,
+    private modalCtrl: ModalController
+  ) {
     this.profile_picture = "assets/imgs/marty-avatar.png";
     this.userProf = new UserProfile();
     //this.gatherUser();
@@ -33,7 +37,10 @@ export class ProfilePage {
     });
     modal.present();
     */
-    this.navCtrl.push(ProfileEditPage);
+    /* this.navCtrl.push(ProfileEditPage); */
+
+    let modal = this.modalCtrl.create(ProfileEditPage, {});
+    modal.present();
   }
 
   gatherUser() {

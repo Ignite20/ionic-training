@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { NavController, ModalController } from "ionic-angular";
 import { Storage } from "@ionic/storage";
 import { UserProfile } from "../../app/models/user-profile";
 import { Camera, CameraOptions } from "@ionic-native/camera";
@@ -43,7 +43,8 @@ export class ProfileEditPage {
     private navCtrl: NavController,
     private storage: Storage,
     private camera: Camera,
-    private cameraPreview: CameraPreview
+    private cameraPreview: CameraPreview,
+    private modalCtrl: ModalController
   ) {
     this.userProf = new UserProfile();
     this.gatherUser();
@@ -74,6 +75,10 @@ export class ProfileEditPage {
         console.log(err);
       });
     */
+
+    /* let modal = this.modalCtrl.create(Camera, {});
+    modal.present(); */
+
     this.camera.getPicture(this.options).then(
       imageData => {
         console.log(imageData);
