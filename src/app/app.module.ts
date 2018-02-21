@@ -4,8 +4,7 @@ import {
   IonicApp,
   IonicErrorHandler,
   IonicModule,
-  ModalController,
-  Modal
+  ModalController
 } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";

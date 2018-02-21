@@ -6,7 +6,7 @@
 	</ion-navbar>
 </ion-header>
 <ion-content>
-	<form (ngSubmit)="saveProfile()">
+	<form>
 		<ion-item>
 			<ion-label floating>Name</ion-label>
 			<ion-input type="text" [(ngModel)]="userProf.name" value="userProf.name" name="name"></ion-input>
@@ -23,13 +23,20 @@
 			<ion-label floating>Hobby</ion-label>
 			<ion-input type="text" [(ngModel)]="userProf.hobby" name="hobby"></ion-input>
 		</ion-item>
-		<ion-item>
-			<img [src]="userProf.picture_url" />
-			<button ion-fab color="primary" side="right" (click)="openCamera()">
-				<ion-icon name="camera"></ion-icon>
-			</button>
+		<ion-row>
+			<ion-item>
 
-		</ion-item>
-		<button ion-button type=" submit " block>Save</button>
+				<img [src]="userProf.picture_url" item-left />
+				<button ion-fab color="primary" side="right" (click)="openCamera()" item-left>
+					<ion-icon name="camera"></ion-icon>
+				</button>
+
+				<!-- <input type="image" capture="camera" /> -->
+
+
+			</ion-item>
+		</ion-row>
 	</form>
+
+	<button ion-button round (click)="saveProfile()">Save</button>
 </ion-content>
