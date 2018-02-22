@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController, ModalController, App } from "ionic-angular";
+import { NavController } from "ionic-angular";
 import { UserProfile } from "../../app/models/user-profile";
 import { ProfileEditPage } from "../profileedit/profileedit";
 import { Storage } from "@ionic/storage";
@@ -14,30 +14,24 @@ export class ProfilePage {
 
   userProf: UserProfile;
 
-  constructor(
-    public navCtrl: NavController,
-    private storage: Storage,
-    private modalCtrl: ModalController,
-    public appCtrl: App
-  ) {
-    this.profile_picture = "assets/imgs/marty-avatar.png";
-    this.userProf = new UserProfile();
-  }
+  constructor(public navCtrl: NavController, private storage: Storage) {}
 
   ngOnInit() {
+    console.log("in init");
+    this.userProf = new UserProfile();
     this.gatherUser();
   }
 
   editProfile() {
     console.log("Editing");
-    this.appCtrl.getRootNav().push(ProfileEditPage);
-    //this.navCtrl.push(ProfileEditPage);
+    this.navCtrl.push(ProfileEditPage);
   }
 
   gatherUser() {
+    let that = this;
     this.storage.get(USER_PROFILE).then(
       user => {
-        this.userProf = user;
+        Object.assign(that.userProf, user);
       },
       err => {
         console.log(err);
@@ -45,11 +39,8 @@ export class ProfilePage {
     );
   }
 
-  ionViewDidLoad() {
-    this.gatherUser();
-  }
-
   ionViewWillEnter() {
+    console.log("in will enter");
     this.gatherUser();
   }
 }

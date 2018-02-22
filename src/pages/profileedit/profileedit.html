@@ -25,18 +25,17 @@
 		</ion-item>
 		<ion-row>
 			<ion-item>
-
-				<img [src]="userProf.picture_url" item-left />
-				<button ion-fab color="primary" side="right" (click)="openCamera()" item-left>
+				<img [src]="userProf.picture_url" />
+				<button ion-fab center-button color="primary" (click)="openCamera()" item-right>
 					<ion-icon name="camera"></ion-icon>
 				</button>
-
-				<!-- <input type="image" capture="camera" /> -->
-
-
 			</ion-item>
 		</ion-row>
 	</form>
 
-	<button ion-button round (click)="saveProfile()">Save</button>
+	<div text-center padding>
+		<button ion-button round (click)="saveProfile()">Save</button>
+	</div>
+
+
 </ion-content>

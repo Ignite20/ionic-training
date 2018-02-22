@@ -12,7 +12,6 @@ import { USER_PROFILE } from "../../util/constants";
 })
 export class ProfileEditPage {
   private userProf: UserProfile;
-  private resultFromCamera: boolean;
 
   options: CameraOptions = {
     quality: 75,
@@ -31,7 +30,6 @@ export class ProfileEditPage {
     private camera: Camera
   ) {
     this.userProf = new UserProfile();
-    this.resultFromCamera = false;
     this.gatherUser();
   }
 
@@ -50,11 +48,8 @@ export class ProfileEditPage {
   }
 
   saveProfile() {
-    this.resultFromCamera = true;
     console.log(this.userProf);
     this.storage.set(USER_PROFILE, this.userProf);
-    console.log(this.resultFromCamera);
-    //if (this.resultFromCamera)
     this.navCtrl.pop();
   }
 
@@ -64,9 +59,6 @@ export class ProfileEditPage {
         console.log(imageData);
         this.userProf.picture_url = imageData;
         //this.profile_picture = "data:image/jpeg;base64," + imageData;
-        console.log(this.resultFromCamera);
-        if (!this.resultFromCamera) this.resultFromCamera = true;
-        console.log(this.resultFromCamera);
       },
       err => {
         console.log(err);
