@@ -47,13 +47,13 @@ export class ProfileEditPage {
     );
   }
 
-  saveProfile() {
+  saveProfile(): void {
     console.log(this.userProf);
     this.storage.set(USER_PROFILE, this.userProf);
     this.navCtrl.pop();
   }
 
-  openCamera() {
+  openCamera(): void {
     this.camera.getPicture(this.options).then(
       imageData => {
         console.log(imageData);
