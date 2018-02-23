@@ -33,12 +33,12 @@ export class ProfileEditPage {
     this.gatherUser();
   }
 
-  gatherUser() {
+  gatherUser(): void {
     this.storage.get(USER_PROFILE).then(
       user => {
         console.log(user);
         if (user != undefined) {
-          this.userProf = user;
+          Object.assign(this.userProf, user);
         }
       },
       err => {
