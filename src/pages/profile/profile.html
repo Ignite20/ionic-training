@@ -9,7 +9,7 @@
 <ion-content padding>
 	<!-- Avatar zone -->
 	<ion-item>
-		<ion-avatar item-start>
+		<ion-avatar item-start *ngIf="userProf.picture_url">
 			<img src="{{userProf.picture_url}}" />
 		</ion-avatar>
 		<h1>{{userProf.name}}</h1>

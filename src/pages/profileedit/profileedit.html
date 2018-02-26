@@ -25,7 +25,7 @@
 		</ion-item>
 		<ion-row>
 			<ion-item>
-				<img [src]="userProf.picture_url" />
+				<img [src]="userProf.picture_url" *ngIf="userProf.picture_url" />
 				<button ion-fab center-button color="primary" (click)="openCamera()" item-right>
 					<ion-icon name="camera"></ion-icon>
 				</button>
