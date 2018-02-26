@@ -35,5 +35,8 @@ export class WeatherPage {
         () => console.log("weather search completed")
       );
     }
+    else{
+      Object.assign(this.weatherData,this.originalState);
+    }
   }
 }
