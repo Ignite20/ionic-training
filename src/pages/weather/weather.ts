@@ -12,6 +12,7 @@ export class WeatherPage {
   };
   private weatherData: any;
   private text_length: number;
+  private weatherIcon: any;
 
   constructor(
     public navCtrl: NavController,
@@ -27,6 +28,10 @@ export class WeatherPage {
       this.weatherService.getWeather(event.target.value).subscribe(
         data => {
           this.weatherData = data.json();
+          this.weatherIcon = this.weatherService.getWeatherIcon(
+            this.weatherData.weather[0].icon
+          );
+          console.log("icon: " + this.weatherIcon);
           console.log(this.weatherData);
         },
         err => {
@@ -34,9 +39,9 @@ export class WeatherPage {
         },
         () => console.log("weather search completed")
       );
-    }
-    else{
-      Object.assign(this.weatherData,this.originalState);
+    } else {
+      Object.assign(this.weatherData, this.originalState);
+      this.weatherIcon = "";
     }
   }
 }

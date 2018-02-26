@@ -11,13 +11,18 @@
 		<ion-input type="text" value="" (input)="searchForWeather($event, searchKey)"></ion-input>
 	</ion-item>
 
-	<ion-item *ngIf="text_length > 1">
-		<ion-card>
-			<ion-item>Temperatura: {{weatherData.main.temp}} º</ion-item>
-			<ion-item>Presión: {{weatherData.main.pressure}}</ion-item>
-			<ion-item>Humedad: {{weatherData.main.humidity}}</ion-item>
-			<ion-item>Min: {{weatherData.main.temp_min}} º</ion-item>
-			<ion-item>Max: {{weatherData.main.temp_max}} º</ion-item>
-		</ion-card>
-	</ion-item>
+	<ion-card *ngIf="text_length > 1">
+
+		<ion-item center>
+			<ion-row>
+				Estado del día:
+				<img src="{{weatherIcon}}" *ngIf="weatherIcon" />
+			</ion-row>
+		</ion-item>
+		<ion-item>Temperatura: {{weatherData.main.temp}} º</ion-item>
+		<ion-item>Presión: {{weatherData.main.pressure}}</ion-item>
+		<ion-item>Humedad: {{weatherData.main.humidity}}</ion-item>
+		<ion-item>Min: {{weatherData.main.temp_min}} º</ion-item>
+		<ion-item>Max: {{weatherData.main.temp_max}} º</ion-item>
+	</ion-card>
 </ion-content>
